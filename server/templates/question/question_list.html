@@ -1,0 +1,16 @@
+<!-- question_list.html -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>질문 목록</h1>
+  <a href="{% url 'question:question_create' %}">새 질문 추가</a>
+  <ul>
+    {% for question in questions %}
+      <li>
+        {{ question.question_text }} - <a href="{% url 'question:question_detail' question.id %}">보기</a>
+        <a href="{% url 'question:question_update' question.id %}">수정</a>
+        <a href="{% url 'question:question_delete' question.id %}">삭제</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

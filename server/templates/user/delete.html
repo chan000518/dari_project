@@ -1,0 +1,12 @@
+<!-- user_confirm_delete.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>계정 탈퇴</h2>
+<form method="post">
+    {% csrf_token %}
+    <p>정말로 계정을 삭제하시겠습니까?</p>
+    <button type="submit">탈퇴하기</button>
+    <a href="{% url 'home' %}">취소</a>
+</form>
+{% endblock %}

@@ -1,0 +1,40 @@
+<!-- base_generic.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}질문 관리 시스템{% endblock %}</title>
+</head>
+<body>
+    <div>
+        <nav>
+            <ul style="display: flex; flex-direction: row; justify-content: space-around;" >
+                <li><a href="{% url 'home' %}">홈</a></li>
+                <li><a href="{% url 'user:login' %}">로그인</a></li>
+                <li><a href="{% url 'user:signup' %}">회원가입</a></li>
+                <li><a href="{% url 'user:edit_profile' %}">프로필 수정</a></li>
+                <li><a href="{% url 'user:delete_user' %}">계정 탈퇴</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div>
+        <nav style="display: flex; flex-direction: row; justify-content: space-around;">
+            <a href="{% url 'question:question_list' %}">질문 목록</a>
+            <a href="{% url 'question:question_create' %}">질문 추가</a>
+        </nav>
+    </div>
+    <div>
+        <nav style="display: flex; flex-direction: row; justify-content: space-around;">
+            <a href="{% url 'interview:interview_list' %}">인터뷰 목록</a>
+            <a href="{% url 'interview:interview_create' %}">새 인터뷰 만들기</a>
+        </nav>
+    </div>
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>© 2024 피우다 프로젝트 피자팀. 모든 권리 보유.</p>
+    </footer>
+</body>
+</html>

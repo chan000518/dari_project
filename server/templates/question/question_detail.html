@@ -1,0 +1,11 @@
+<!-- question_confirm_delete.html -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ question.question_text }}를 삭제하시겠습니까?</h1>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">삭제</button>
+    <a href="{% url 'question:question_detail' question.id %}">취소</a>
+  </form>
+{% endblock %}

@@ -1,0 +1,17 @@
+<!-- interviews/interview_detail.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ interview.title }}</h1>
+<p>작성자: {{ interview.created_by }}</p>
+<p>질문 목록:</p>
+<ol>
+    {% for question in questions %}
+    <li>{{ question.question_text }}</li>
+    {% empty %}
+    <li>이 인터뷰에는 질문이 없습니다.</li>
+    {% endfor %}
+</ol>
+<a href="{% url 'interview:interview_update' interview.pk %}">인터뷰 수정</a>
+<a href="{% url 'interview:interview_delete' interview.pk %}">인터뷰 삭제</a>
+{% endblock %}

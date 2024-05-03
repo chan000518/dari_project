@@ -1,0 +1,11 @@
+<!-- interviews/interview_form.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{% if object %}인터뷰 수정{% else %}새 인터뷰 만들기{% endif %}</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">저장</button>
+</form>
+{% endblock %}

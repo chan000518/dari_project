@@ -1,0 +1,18 @@
+<!-- interviews/interview_list.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>인터뷰 목록</h1>
+<a href="{% url 'interview:interview_create' %}">새 인터뷰 만들기</a>
+<ul>
+  {% for interview in interviews %}
+    <li>
+      <a href="{% url 'interview:interview_detail' interview.pk %}">{{ interview.title }}</a>
+      - <a href="{% url 'interview:interview_update' interview.pk %}">수정</a>
+      - <a href="{% url 'interview:interview_delete' interview.pk %}">삭제</a>
+    </li>
+  {% empty %}
+    <li>등록된 인터뷰가 없습니다.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

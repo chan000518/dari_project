@@ -1,0 +1,12 @@
+
+<!-- question_form.html -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{% if object %}질문 수정{% else %}새 질문 생성{% endif %}</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">저장</button>
+  </form>
+{% endblock %}
